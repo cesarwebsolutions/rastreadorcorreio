@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Correio
+    </ion-title>
+  </ion-toolbar>
+    <ion-toolbar color="primary">
+      <ion-searchbar color="light" placeholder="Código de rastreio" (ionChange)="pesquisar($event)">
+
+      </ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let evento of eventos">
+      <ion-label>
+        <h3>{{evento.descricao}}</h3>
+        <p class="ion-text-wrap">{{evento.detalhe}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="erro">
+  <ion-grid>
+    <ion-row  class="ion-justify-content-center">
+      Houve um erro ao carregar dados
+    </ion-row>
+  </ion-grid>
+</ion-content>
